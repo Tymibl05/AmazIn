@@ -1,1 +1,0 @@
-# AmazIn: Getting Started
