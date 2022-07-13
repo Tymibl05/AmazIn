@@ -1,0 +1,53 @@
+#HomePage h1 {
+  width: 100%;
+  margin-bottom: 1em;
+}
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-evenly;
+}
+.product {
+  position: relative;
+  width: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 2px var(--gold);
+}
+.product img {
+  width: 100%;
+}
+.product-info {
+  padding: 1em;
+  background-color: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.product h3 {
+  color: var(--gold);
+}
+.product p {
+  color: var(--white);
+}
+.product button {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  padding: 0.75em;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--gray);
+  color: var(--gold);
+}
+.product button:hover {
+  background-color: var(--gold);
+  color: var(--white);
+}
+.stars {
+  color: var(--gold);
+}
+.reviews {
+  color: var(--white);
+}

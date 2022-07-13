@@ -1,7 +1,8 @@
-import { useState, useEffect, useReducer } from 'react';
-import { Link } from 'react-router-dom';
+import './HomePage.css';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
+import { Product } from '../components/Product';
+// import logger from 'use-reducer-logger';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -17,7 +18,7 @@ const reducer = (state, action) => {
 };
 
 export const HomePage = () => {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: '',
@@ -34,7 +35,7 @@ export const HomePage = () => {
     })();
   }, []);
   return (
-    <>
+    <div id="HomePage">
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
@@ -43,23 +44,10 @@ export const HomePage = () => {
           <div>{error}</div>
         ) : (
           products.map((product) => (
-            <div className="product" key={product.slug}>
-              <Link to={`/product/${product.slug}`}>
-                <img alt={product.name}></img>
-              </Link>
-              <div className="product-info">
-                <Link to={`/product/${product.slug}`}>
-                  <h3>{product.name}</h3>
-                </Link>
-                <p>
-                  <strong>${product.price}</strong>
-                </p>
-              </div>
-              <button>Add to cart</button>
-            </div>
+            <Product key={product.slug} product={product} />
           ))
         )}
       </div>
-    </>
+    </div>
   );
 };

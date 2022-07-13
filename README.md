@@ -46,7 +46,19 @@
    9. npm install use-reducer-logger
       - logs state changes between dispatch actions
    10. added conditionally rendered Loading / Error display
+7. Style HomePage
+   1. created new HomePage.css and transfered styles from App.css
+      - added custom color pallet in App.css
+   2. npm install FontAwesome packages
+      - library holds selected icons to use in other components
+      - import <FontAwesomeIcons icon=''/> in necessary components
+      * uninstalled use-reducer-logger due to conflicts in package.json
+   3. added filler image to data.js > products.image
+   4. created <Product /> inside new components folder
+      - added logic within products.map() for readability
+   5. created <Rating /> and imported into <Product />
+      - renders the appropriate number of stars and number of reviews for each product under the product's name
 
 # Next
 
-7. Style HomePage
+8. update ProductPage with each product's info (img, name, price, etc.)
