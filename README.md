@@ -23,7 +23,15 @@
       - created path '/api/products'
       - created port for express app to listen on
       - returns products array from data.js
+6. Fetch Products From Backend
+   1. set proxy in frontend's package.json
+   2. npm install axios
+   3. Hooks
+      - useState
+      - useEffect
+        - axios .get() to fetch from 'http://localhost:3000/api/products'
+        - setProducts state to result of fetch
+   4. replace map() from local 'data.products' to 'products' state
+   5. removed local data.js import from HomePage
 
 # Next
-
-- fetch products from backend api using Axios
