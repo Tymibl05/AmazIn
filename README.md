@@ -33,5 +33,20 @@
         - setProducts state to result of fetch
    4. replace map() from local 'data.products' to 'products' state
    5. removed local data.js import from HomePage
+   6. added reducer() w/ switch statement for different FETCH actions
+      - returns state , loading, error, and products
+   7. converted useState to useReducer
+      - receives loading, error, products, and dispatch
+      - sets initial values
+      - calls reducer function
+   8. updated useEffect()
+      - calls dispatch() to update loading state
+      - added try/catch for fetch request, setting payload to the result
+      - converted fetchData() to IIFE
+   9. npm install use-reducer-logger
+      - logs state changes between dispatch actions
+   10. added conditionally rendered Loading / Error display
 
 # Next
+
+7. Style HomePage
