@@ -10,7 +10,9 @@ export const Rating = ({ rating, qtyReviews }) => {
         {rating >= 3 && <FontAwesomeIcon icon="star" />}
         {rating >= 4 && <FontAwesomeIcon icon="star" />}
         {rating >= 4.9 && <FontAwesomeIcon icon="star" />}
-        {5 % rating <= 0.5 && <FontAwesomeIcon icon="star-half-alt" />}
+        {Math.ceil(rating) - rating <= 0.5 && (
+          <FontAwesomeIcon icon="star-half-alt" />
+        )}
       </span>
       <span className="reviews"> {qtyReviews} reviews</span>
     </div>
