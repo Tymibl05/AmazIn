@@ -62,7 +62,10 @@
    1. fetch products from backend
       - updated backend data.js for '/products/slug/:slug'
    2. styled Product Page
+9. Loading and Error components
+   1. created components for Loading and Error statuses and styled
+   2. added getError() in utils.js to show 'Product Not Found' message instead of default 404 error
 
 # Next
 
-9. Loading and Error components
+10. Add to cart functionality

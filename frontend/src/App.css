@@ -40,3 +40,20 @@ footer {
   display: flex;
   justify-content: center;
 }
+#Loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3em;
+  padding: 3em;
+  color: var(--gold);
+}
+#Error p {
+  width: fit-content;
+  font-size: 1.5em;
+  padding: 1em;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 8px;
+}

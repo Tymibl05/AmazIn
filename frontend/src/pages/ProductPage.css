@@ -38,11 +38,15 @@
   border-radius: 8px;
   box-shadow: 0 0 8px var(--gray);
 }
+.available button:hover {
+  color: var(--gold);
+  background-color: var(--white);
+}
 .flexR {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.5em;
 }
 .flexR h1 {
   padding-bottom: 1em;
@@ -50,4 +54,17 @@
 }
 .flexR h3 {
   margin-bottom: 0.5em;
+}
+@media screen and (max-width: 480px) {
+  #ProductPage {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .available p,
+  .available button,
+  .unavailable p {
+    font-size: 1.25em;
+    padding: 0.25em;
+  }
 }

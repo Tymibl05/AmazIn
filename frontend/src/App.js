@@ -7,8 +7,9 @@ import {
   faCartPlus,
   faStar,
   faStarHalfAlt,
+  faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faCartPlus, faStar, faStarHalfAlt);
+library.add(faCartPlus, faStar, faStarHalfAlt, faSpinner);
 
 function App() {
   return (

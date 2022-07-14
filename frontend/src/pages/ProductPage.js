@@ -2,8 +2,11 @@ import './ProductPage.css';
 import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import { Rating } from '../components/Rating';
+import { Loading } from '../components/Loading';
+import { Error } from '../components/Error';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getError } from '../utils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -32,14 +35,14 @@ export const ProductPage = () => {
         const res = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: res.data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
       }
     })();
   }, [slug]);
   return loading ? (
-    <div>Loading...</div>
+    <Loading />
   ) : error ? (
-    <div>{error}</div>
+    <Error error={error} />
   ) : (
     <div id="ProductPage">
       <div className="flexL">

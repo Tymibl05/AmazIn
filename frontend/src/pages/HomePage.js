@@ -2,7 +2,8 @@ import './HomePage.css';
 import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import { Product } from '../components/Product';
-// import logger from 'use-reducer-logger';
+import { Loading } from '../components/Loading';
+import { Error } from '../components/Error';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,9 +40,9 @@ export const HomePage = () => {
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
-          <div>Loading...</div>
+          <Loading />
         ) : error ? (
-          <div>{error}</div>
+          <Error error={error} />
         ) : (
           products.map((product) => (
             <Product key={product.slug} product={product} />
