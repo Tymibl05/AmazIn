@@ -58,7 +58,12 @@
       - added logic within products.map() for readability
    5. created <Rating /> and imported into <Product />
       - renders the appropriate number of stars and number of reviews for each product under the product's name
+8. Update Product Details Page
+   1. fetch products from backend
+      - updated backend data.js for '/products/slug/:slug'
+   2. styled Product Page
+   - class conflict with 'reviews'
 
 # Next
 
-8. update ProductPage with each product's info (img, name, price, etc.)
+9.

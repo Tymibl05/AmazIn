@@ -1,0 +1,56 @@
+#ProductPage {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2em;
+}
+.flexL {
+  flex-grow: 1;
+}
+.flexL img {
+  width: 100%;
+}
+.available,
+.unavailable {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+}
+.available p,
+.available button,
+.unavailable p {
+  font-size: 1.5em;
+  padding: 0.25em;
+}
+.available p,
+.unavailable p {
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 8px;
+}
+.unavailable p {
+  background-color: var(--red);
+}
+.available button {
+  color: var(--white);
+  background-color: var(--gold);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 8px var(--gray);
+}
+.flexR {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.flexR h1 {
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--charcoal);
+}
+.reviews {
+  color: var(--white);
+}
+.flexR h3 {
+  margin-bottom: 0.5em;
+}
