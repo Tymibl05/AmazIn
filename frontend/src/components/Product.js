@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const Product = ({ product }) => {
   return (
-    <div className="product">
+    <div id="Product">
       <Link to={`/product/${product.slug}`}>
         <img src={product.image} alt={product.name}></img>
       </Link>

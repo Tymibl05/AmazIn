@@ -1,8 +1,8 @@
+import './ProductPage.css';
 import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import { Rating } from '../components/Rating';
 import axios from 'axios';
-import './ProductPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const reducer = (state, action) => {

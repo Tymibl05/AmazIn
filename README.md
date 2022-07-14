@@ -62,8 +62,7 @@
    1. fetch products from backend
       - updated backend data.js for '/products/slug/:slug'
    2. styled Product Page
-   - class conflict with 'reviews'
 
 # Next
 
-9.
+9. Loading and Error components

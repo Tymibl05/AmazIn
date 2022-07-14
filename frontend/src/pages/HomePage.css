@@ -8,14 +8,14 @@
   gap: 2em;
   justify-content: space-evenly;
 }
-.product {
+#Product {
   position: relative;
   width: 250px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px 2px var(--gold);
 }
-.product img {
+#Product img {
   width: 100%;
 }
 .product-info {
@@ -25,13 +25,13 @@
   flex-direction: column;
   gap: 1em;
 }
-.product h3 {
+#Product h3 {
   color: var(--gold);
 }
-.product p {
+#Product p {
   color: var(--white);
 }
-.product button {
+#Product button {
   position: absolute;
   bottom: 1em;
   right: 1em;
@@ -41,13 +41,13 @@
   background-color: var(--gray);
   color: var(--gold);
 }
-.product button:hover {
+#Product button:hover {
   background-color: var(--gold);
   color: var(--white);
 }
 .stars {
   color: var(--gold);
 }
-.reviews {
+#Product .reviews {
   color: var(--white);
 }

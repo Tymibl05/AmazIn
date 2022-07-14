@@ -48,9 +48,6 @@
   padding-bottom: 1em;
   border-bottom: 1px solid var(--charcoal);
 }
-.reviews {
-  color: var(--white);
-}
 .flexR h3 {
   margin-bottom: 0.5em;
 }
