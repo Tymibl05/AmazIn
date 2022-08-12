@@ -1,5 +1,5 @@
 import './ProductPage.css';
-import { useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import { Rating } from '../components/Rating';
 import { Loading } from '../components/Loading';
@@ -7,6 +7,7 @@ import { Error } from '../components/Error';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getError } from '../utils';
+import { Store } from '../Store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,6 +40,13 @@ export const ProductPage = () => {
       }
     })();
   }, [slug]);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: 'CART_ADD_ITEM',
+      payload: { ...product, quantity: 1 },
+    });
+  };
   return loading ? (
     <Loading />
   ) : error ? (
@@ -50,7 +58,7 @@ export const ProductPage = () => {
         {product.qtyInStock > 0 ? (
           <div className="available">
             <p>In Stock</p>
-            <button>
+            <button onClick={addToCartHandler}>
               <FontAwesomeIcon icon="cart-plus" />
             </button>
           </div>

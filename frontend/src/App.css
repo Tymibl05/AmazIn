@@ -28,9 +28,23 @@ button:active {
   transform: scale(0.9);
 }
 nav {
+  display: flex;
+  gap: 1rem;
   background-color: var(--charcoal);
   color: var(--gold);
   padding: 1em 2em;
+}
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cart div {
+  width: 1.25rem;
+  background-color: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  text-align: center;
 }
 main {
   padding: 2em;

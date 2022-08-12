@@ -18,7 +18,7 @@ export const data = {
       category: 'Pants',
       image: '/images/nike-slim-shirt.webp',
       price: 130,
-      qtyInStock: 12,
+      qtyInStock: 0,
       brand: 'Nike',
       rating: 4.7,
       qtyReviews: 18,

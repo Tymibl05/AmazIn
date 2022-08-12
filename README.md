@@ -65,7 +65,12 @@
 9. Loading and Error components
    1. created components for Loading and Error statuses and styled
    2. added getError() in utils.js to show 'Product Not Found' message instead of default 404 error
+10. Add to Cart Functionality
+    1. Create React Context
+    2. define reducer
+    3. create Store Provider
+    4. implement add to cart click handler
 
 # Next
 
-10. Add to cart functionality
+11. Complete Add to Cart
