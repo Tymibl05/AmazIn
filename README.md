@@ -70,7 +70,10 @@
     2. define reducer
     3. create Store Provider
     4. implement add to cart click handler
+11. Complete Add to Cart
+    1. check existing items in cart
+    2. check count in stock in backend
 
 # Next
 
-11. Complete Add to Cart
+12. Create Cart Page
