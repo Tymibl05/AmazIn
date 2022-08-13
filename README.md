@@ -73,7 +73,11 @@
 11. Complete Add to Cart
     1. check existing items in cart
     2. check count in stock in backend
+12. Create Cart Page
+    1. display cart items list
+    2. display subtotal information
+    3. added styling with scss
 
 # Next
 
-12. Create Cart Page
+13. Add Cart Page functionality

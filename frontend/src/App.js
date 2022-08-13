@@ -1,17 +1,19 @@
-import './App.css';
+import './App.scss';
 import { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Store } from './Store';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
+import { CartPage } from './pages/CartPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faCartPlus,
   faStar,
   faStarHalfAlt,
   faSpinner,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faCartPlus, faStar, faStarHalfAlt, faSpinner);
+library.add(faCartPlus, faStar, faStarHalfAlt, faSpinner, faTrash);
 
 function App() {
   const { state } = useContext(Store);
@@ -33,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product/:slug" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </main>
       <footer>
