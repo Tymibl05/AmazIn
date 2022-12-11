@@ -17,6 +17,8 @@
 }
 #Product img {
   width: 100%;
+  max-height: 250px;
+  display: block;
 }
 .product-info {
   padding: 1em;
@@ -49,5 +51,10 @@
   color: var(--gold);
 }
 #Product .reviews {
+  color: var(--white);
+}
+#Product .red-bg,
+#Product .red-bg:hover {
+  background-color: var(--red);
   color: var(--white);
 }

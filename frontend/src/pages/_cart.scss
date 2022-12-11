@@ -3,8 +3,24 @@
   justify-content: center;
   gap: 2rem;
 
-  .items {
+  .empty {
     min-width: 60%;
+    height: fit-content;
+    background-color: var(--gold);
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: larger;
+
+    .link {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  .items {
+    width: 100%;
+    max-width: 800px;
+
     li {
       list-style: none;
       display: flex;
@@ -43,6 +59,9 @@
         cursor: unset;
       }
     }
+    .trash:hover {
+      color: var(--red);
+    }
   }
 
   .summary {
@@ -71,6 +90,20 @@
       background-color: var(--white);
       color: var(--gold);
       border-color: var(--gold);
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5em;
+  }
+  @media screen and (max-width: 769px) {
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      flex-direction: column;
+      gap: 1em;
     }
   }
 }

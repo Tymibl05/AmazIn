@@ -16,6 +16,9 @@ body {
   background-color: var(--white);
   color: var(--black);
 }
+main {
+  min-height: 80vh;
+}
 a {
   text-decoration: none;
   color: unset;

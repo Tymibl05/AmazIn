@@ -77,7 +77,14 @@
     1. display cart items list
     2. display subtotal information
     3. added styling with scss
+13. Add Cart Page functionality
+    1. inc/dec click handler
+    2. remove item click handler
+14. Backend SignIn API
+    1. Placeholder users
+    2. bcryptjs for hashing passwords and comparing passwords at sign-in
+    3. jsonwebtoken to generate new session token at sign-in
 
 # Next
 
-13. Add Cart Page functionality
+15. Frontend Sign-In Page

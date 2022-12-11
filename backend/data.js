@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+
 export const data = {
   products: [
     {
@@ -18,7 +20,7 @@ export const data = {
       name: 'Nike Slim Pants',
       slug: 'nike-slim-pants',
       category: 'Pants',
-      image: '/images/nike-slim-shirt.webp',
+      image: '/images/nike-slim-pants.webp',
       price: 130,
       qtyInStock: 0,
       brand: 'Nike',
@@ -31,7 +33,7 @@ export const data = {
       name: 'Adidas Fit Shirt',
       slug: 'adidas-fit-shirt',
       category: 'Shirts',
-      image: '/images/nike-slim-shirt.webp',
+      image: '/images/adidas-fit-shirt.webp',
       price: 100,
       qtyInStock: 8,
       brand: 'Adidas',
@@ -44,13 +46,36 @@ export const data = {
       name: 'Adidas Fit Joggers',
       slug: 'adidas-fit-joggers',
       category: 'Pants',
-      image: '/images/nike-slim-shirt.webp',
-      price: 130,
+      image: '/images/adidas-fit-joggers.webp',
+      price: 110,
       qtyInStock: 15,
       brand: 'Adidas',
       rating: 3.8,
       qtyReviews: 21,
       description: 'high quality fitness joggers',
+    },
+  ],
+  users: [
+    {
+      id: '',
+      name: 'Michael leCour',
+      email: 'test-admin@test.com',
+      password: bcrypt.hashSync('admin-user1'),
+      is_admin: true,
+    },
+    {
+      id: '',
+      name: 'Mary Jane',
+      email: 'test2@test.com',
+      password: bcrypt.hashSync('123456'),
+      is_admin: false,
+    },
+    {
+      id: '',
+      name: 'John Doe',
+      email: 'test3@test.com',
+      password: bcrypt.hashSync('123456'),
+      is_admin: false,
     },
   ],
 };

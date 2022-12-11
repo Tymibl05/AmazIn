@@ -28,7 +28,7 @@ export const ProductPage = () => {
     product: [],
     loading: true,
     error: '',
-  });
+  }); // refactor into useState?
   useEffect(() => {
     (async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -40,19 +40,20 @@ export const ProductPage = () => {
       }
     })();
   }, [slug]);
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
-    if (data.countInStock < quantity) {
+    if (data.qtyInStock < quantity) {
       window.alert('Sorry. Product is out of stock.');
-    }
-    ctxDispatch({
-      type: 'CART_ADD_ITEM',
-      payload: { ...product, quantity },
-    });
+    } else
+      ctxDispatch({
+        type: 'CART_ADD_ITEM',
+        payload: { ...product, quantity },
+      });
   };
   return loading ? (
     <Loading />

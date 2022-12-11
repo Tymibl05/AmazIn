@@ -9,12 +9,13 @@
 }
 .flexL img {
   width: 100%;
+  max-height: 500px;
 }
 .available,
 .unavailable {
   display: flex;
   gap: 1em;
-  padding: 1em;
+  padding-top: 0.5em;
 }
 .available p,
 .available button,
