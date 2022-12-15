@@ -84,7 +84,19 @@
     1. Placeholder users
     2. bcryptjs for hashing passwords and comparing passwords at sign-in
     3. jsonwebtoken to generate new session token at sign-in
+15. Frontend Sign-In Page
+    1. Sign in function retrieves user info and sets in state and local storage
+    2. sign out function removes user cart from state and local storage
+16. Refactored context
+    1. useState holds user and cart info vs reducer
+    2. dispatch object holds state functions
+    3. state and dispatch passed as context values
+17. Checkout Page
+    1. redirects to sign in page if there is no user
+    2. Steps components to visualize checkout steps
+    3. Shipping info and payment option saved in local storage
+    4. Order Preview --- in progress
 
 # Next
 
-15. Frontend Sign-In Page
+18.

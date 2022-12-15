@@ -6,19 +6,17 @@ import { useStore } from '../Store';
 import axios from 'axios';
 
 export const Product = ({ product }) => {
-  const { state, dispatch: ctxDispatch } = useStore();
-  const { cart } = state;
+  const {
+    state: { cart },
+    dispatch,
+  } = useStore();
   const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const existItem = cart.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.qtyInStock < quantity) {
       window.alert('Sorry. Product is out of stock.');
-    } else
-      ctxDispatch({
-        type: 'CART_ADD_ITEM',
-        payload: { ...product, quantity },
-      });
+    } else dispatch.plusCart({ ...product, quantity });
   };
   return (
     <div id="Product">

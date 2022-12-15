@@ -2,15 +2,17 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import { data } from './data.js';
 import { generateToken } from './utils.js';
+import cors from 'cors';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const app = express();
 const port = process.env.PORT || 5000;
+const app = express();
+app.use(express.json());
+app.use(cors());
 app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
 });
-app.use(express.json());
 
 // USERS
 app.get('/api/users', (req, res) => {
@@ -30,7 +32,7 @@ app.post('/api/users/signin', (req, res) => {
       return;
     }
   }
-  res.status(401).send({ message: 'Invalid email or Password' });
+  res.status(401).send({ message: 'Invalid email or password' });
 });
 
 // PRODUCTS

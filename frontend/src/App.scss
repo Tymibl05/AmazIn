@@ -34,10 +34,42 @@ button:active,
 }
 nav {
   display: flex;
+  align-items: center;
   gap: 1rem;
   background-color: var(--charcoal);
   color: var(--gold);
   padding: 1em 2em;
+  .user {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    gap: 0.5em;
+    button {
+      border: none;
+      color: var(--white);
+      background-color: transparent;
+    }
+    .dropdown {
+      position: absolute;
+      z-index: 5;
+      top: 1.5em;
+      left: 0;
+      background-color: var(--white);
+      color: var(--black);
+      border: 1px solid black;
+      border-radius: 4px;
+      overflow: hidden;
+      div {
+        padding: 0.75em 1em;
+        &.signout {
+          border-top: 1px solid black;
+        }
+        &:hover {
+          background-color: var(--gold);
+        }
+      }
+    }
+  }
 }
 .cart {
   display: flex;

@@ -1,5 +1,5 @@
 import './ProductPage.css';
-import { useContext, useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useParams } from 'react-router-dom';
 import { Rating } from '../components/Rating';
 import { Loading } from '../components/Loading';
@@ -7,7 +7,7 @@ import { Error } from '../components/Error';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getError } from '../utils';
-import { Store } from '../Store';
+import { useStore } from '../Store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -41,19 +41,17 @@ export const ProductPage = () => {
     })();
   }, [slug]);
 
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { cart } = state;
+  const {
+    state: { cart },
+    dispatch: ctxDispatch,
+  } = useStore();
   const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const existItem = cart.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.qtyInStock < quantity) {
       window.alert('Sorry. Product is out of stock.');
-    } else
-      ctxDispatch({
-        type: 'CART_ADD_ITEM',
-        payload: { ...product, quantity },
-      });
+    } else ctxDispatch.plusCart({ ...product, quantity });
   };
   return loading ? (
     <Loading />

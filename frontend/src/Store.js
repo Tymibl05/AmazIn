@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const Store = createContext();
 export const useStore = () => {
@@ -6,39 +6,58 @@ export const useStore = () => {
 };
 
 export function StoreProvider(props) {
-  const initialState = {
-    cart: {
-      cartItems: localStorage.getItem('cartItems')
-        ? JSON.parse(localStorage.getItem('cartItems'))
-        : [],
+  const [state, setState] = useState({
+    user: localStorage.getItem('user')
+      ? JSON.parse(localStorage.getItem('user'))
+      : null,
+    cart: localStorage.getItem('cart')
+      ? JSON.parse(localStorage.getItem('cart'))
+      : [],
+  });
+
+  const dispatch = {
+    signin: (user) => {
+      localStorage.setItem('user', JSON.stringify(state.user));
+      setState({ ...state, user: user });
+    },
+    signout: () => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('cart');
+      setState({ user: null, cart: [] });
+    },
+    plusCart: (newItem) => {
+      const existItem = state.cart.find((item) => item._id === newItem._id);
+      const cart = existItem
+        ? state.cart.map((item) =>
+            item._id === existItem._id ? newItem : item
+          )
+        : [...state.cart, newItem];
+      localStorage.setItem('cart', JSON.stringify([...cart]));
+      setState({ ...state, cart: cart });
+    },
+    minusCart: (removeItem) => {
+      const cartItems = state.cart.filter(
+        (item) => item._id !== removeItem._id
+      );
+      localStorage.setItem('cart', JSON.stringify([...cartItems]));
+      setState({ ...state, cart: [...cartItems] });
+    },
+    saveShipping: (shippingInfo) => {
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ ...state.user, shipping: shippingInfo })
+      );
+      setState({ ...state, user: { ...state.user, shipping: shippingInfo } });
+    },
+    savePayment: (paymentInfo) => {
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ ...state.user, payment: paymentInfo })
+      );
+      setState({ ...state, user: { ...state.user, payment: paymentInfo } });
     },
   };
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'CART_ADD_ITEM':
-        const newItem = action.payload;
-        const existItem = state.cart.cartItems.find(
-          (item) => item._id === newItem._id
-        );
-        const cartItems = existItem
-          ? state.cart.cartItems.map((item) =>
-              item._id === existItem._id ? newItem : item
-            )
-          : [...state.cart.cartItems, newItem];
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        return { ...state, cart: { ...state.cart, cartItems } };
-      case 'CART_REMOVE_ITEM': {
-        const cartItems = state.cart.cartItems.filter(
-          (item) => item._id !== action.payload._id
-        );
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        return { ...state, cart: { ...state.cart, cartItems } };
-      }
-      default:
-        return state;
-    }
-  };
-  const [state, dispatch] = useReducer(reducer, initialState);
+
   const value = { state, dispatch };
   return <Store.Provider value={value}>{props.children}</Store.Provider>;
 }

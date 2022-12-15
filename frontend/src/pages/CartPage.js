@@ -7,28 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const CartPage = () => {
-  const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
-    cart: { cartItems },
-  } = state;
+    state: { cart },
+    dispatch,
+  } = useContext(Store);
 
   const quantityHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Product is out of stock.');
-    } else
-      ctxDispatch({
-        type: 'CART_ADD_ITEM',
-        payload: { ...item, quantity },
-      });
+    } else dispatch.plusCart({ ...item, quantity });
   };
 
   const removeItemHandler = (item) => {
-    ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    dispatch.minusCart(item);
   };
   return (
     <div id="Cart">
-      {cartItems.length === 0 ? (
+      {cart.length === 0 ? (
         <div className="empty">
           Cart is empty.{' '}
           <Link to="/" className="link">
@@ -37,7 +33,7 @@ export const CartPage = () => {
         </div>
       ) : (
         <ul className="items">
-          {cartItems.map((item) => (
+          {cart.map((item) => (
             <li key={item._id}>
               <Link to={`/product/${item.slug}`} className="product">
                 <img src={item.image} alt={item.name} />
@@ -76,10 +72,12 @@ export const CartPage = () => {
       )}
       <div className="summary">
         <h2>
-          Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)} items):
-          <br />${cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+          Subtotal ({cart.reduce((a, c) => a + c.quantity, 0)} items):
+          <br />${cart.reduce((a, c) => a + c.price * c.quantity, 0)}
         </h2>
-        <button disabled={cartItems.length === 0}>Proceed to Checkout</button>
+        <Link to={'/checkout'}>
+          <button disabled={cart.length === 0}>Proceed to Checkout</button>
+        </Link>
       </div>
     </div>
   );
