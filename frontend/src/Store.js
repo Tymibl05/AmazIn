@@ -56,6 +56,13 @@ export function StoreProvider(props) {
       );
       setState({ ...state, user: { ...state.user, payment: paymentInfo } });
     },
+    clearCart: () => {
+      localStorage.removeItem('cart');
+      setState({
+        ...state,
+        cart: [],
+      });
+    },
   };
 
   const value = { state, dispatch };

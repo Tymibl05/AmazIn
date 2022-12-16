@@ -1,7 +1,6 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
-// import { data } from './data.js';
-import { generateToken } from './utils.js';
+import { generateToken, isAuth } from './utils.js';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 import { connectDb, getCol } from './db/mongo.js';
@@ -15,18 +14,6 @@ app.listen(port, () => {
   console.log(`serve at http://localhost:${port}`);
   connectDb();
 });
-
-// app.post('/setdb', async (req, res) => {
-//   try {
-//     const userCol = await getCol('users');
-//     const productCol = await getCol('products');
-//     userCol.insertMany(data.users);
-//     productCol.insertMany(data.products);
-//     res.send('db set');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 // USERS
 app.get('/api/users', async (req, res) => {
@@ -96,3 +83,18 @@ app.get('/api/products/:id', async (req, res) => {
     res.send(error);
   }
 });
+
+// ORDERS
+app.post(
+  '/api/orders/',
+  (req, res, next) => isAuth(req, res, next),
+  async (req, res) => {
+    try {
+      const col = await getCol('orders');
+      const newOrder = await col.insertOne({ ...req.body, user: req.user.id });
+      res.send(newOrder);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);

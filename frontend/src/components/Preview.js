@@ -1,17 +1,43 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStore } from '../Store';
 
 export const Preview = ({ setStep }) => {
+  const navigate = useNavigate();
   const {
     state: { user, cart },
+    dispatch,
   } = useStore();
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
   const itemsPrice = round2(cart.reduce((a, c) => a + c.quantity * c.price, 0));
   const shippingPrice = itemsPrice > 100 ? round2(0) : round2(10);
   const taxPrice = round2(0.15 * itemsPrice);
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
-  const orderHandler = () => {};
+  const orderHandler = async () => {
+    const url = `http://localhost:5000/api/orders/`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${user.token}`,
+      },
+      body: JSON.stringify({
+        items: cart,
+        itemsPrice: itemsPrice,
+        shippingPrice: shippingPrice,
+        taxPrice: taxPrice,
+        totalPrice: totalPrice,
+      }),
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      console.log(err);
+      return;
+    }
+    const order = await res.json();
+    dispatch.clearCart();
+    navigate(`/orders/${order.insertedId}`);
+  };
   return (
     <div id="Preview">
       <div>

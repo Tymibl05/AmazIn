@@ -10,17 +10,16 @@ import './checkout.scss';
 export const CheckoutPage = () => {
   const navigate = useNavigate();
   const {
-    state: { user },
+    state: { user, cart },
   } = useStore();
   const [step, setStep] = useState(user ? 2 : 1);
   useEffect(() => {
     if (!user) navigate('/signin?redirect=/checkout');
-    if (!user.shipping) setStep(2);
-    if (!user.payment) setStep(3);
-  }, [user, navigate]);
+    if (cart.length < 1) navigate('/cart');
+  }, [user, cart.length, navigate]);
   return (
     <div id="Checkout">
-      <CheckoutSteps step={step}></CheckoutSteps>
+      <CheckoutSteps step={step} setStep={setStep}></CheckoutSteps>
       {step === 2 && <Shipping setStep={setStep} />}
       {step === 3 && <Payment setStep={setStep} />}
       {step === 4 && <Preview setStep={setStep} />}

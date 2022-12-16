@@ -15,6 +15,7 @@ import {
   faTrash,
   faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
+import { OrderDetails } from './pages/OrderDetails';
 library.add(faCartPlus, faStar, faStarHalfAlt, faSpinner, faTrash, faCaretDown);
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
         </Routes>
       </main>
       <footer>

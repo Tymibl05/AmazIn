@@ -95,8 +95,12 @@
     1. redirects to sign in page if there is no user
     2. Steps components to visualize checkout steps
     3. Shipping info and payment option saved in local storage
-    4. Order Preview --- in progress
+    4. Order Preview displays order info and calculates prices (items, tax, shipping, total)
+    5. Submit Order directs user to Order Details page
+18. Mongo DB
+    1. backend connected to mongo db
+    2. users, products, and orders routes
 
 # Next
 
-18.
+19. Order Details Page
