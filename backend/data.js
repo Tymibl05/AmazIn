@@ -34,7 +34,7 @@ export const data = {
       slug: 'adidas-fit-shirt',
       category: 'Shirts',
       image: '/images/adidas-fit-shirt.webp',
-      price: 100,
+      price: 80,
       qtyInStock: 8,
       brand: 'Adidas',
       rating: 4.1,

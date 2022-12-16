@@ -15,6 +15,8 @@ export const CheckoutPage = () => {
   const [step, setStep] = useState(user ? 2 : 1);
   useEffect(() => {
     if (!user) navigate('/signin?redirect=/checkout');
+    if (!user.shipping) setStep(2);
+    if (!user.payment) setStep(3);
   }, [user, navigate]);
   return (
     <div id="Checkout">

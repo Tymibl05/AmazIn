@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Store } from '../Store';
+import { useStore } from '../Store';
 import axios from 'axios';
 import './_cart.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ export const CartPage = () => {
   const {
     state: { cart },
     dispatch,
-  } = useContext(Store);
+  } = useStore();
 
   const quantityHandler = async (item, quantity) => {
     const { data } = await axios.get(`/api/products/${item._id}`);

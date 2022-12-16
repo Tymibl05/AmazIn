@@ -26,8 +26,8 @@ export const Payment = ({ setStep }) => {
               type="radio"
               name=""
               id=""
-              value={'paypal'}
-              checked={paymentMethod === 'paypal'}
+              value={'PayPal'}
+              checked={paymentMethod === 'PayPal'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
             <label htmlFor="">Paypal</label>
@@ -37,8 +37,8 @@ export const Payment = ({ setStep }) => {
               type="radio"
               name=""
               id=""
-              value={'stripe'}
-              checked={paymentMethod === 'stripe'}
+              value={'Stripe'}
+              checked={paymentMethod === 'Stripe'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
             <label htmlFor="">Stripe</label>
