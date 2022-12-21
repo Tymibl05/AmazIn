@@ -25,8 +25,15 @@ export const Preview = ({ setStep }) => {
         items: cart,
         itemsPrice: itemsPrice,
         shippingPrice: shippingPrice,
+        shipping: {
+          name: user.shipping.name,
+          address: `${user.shipping.address}, ${user.shipping.city}, ${user.shipping.country} ${user.shipping.pcode}`,
+        },
         taxPrice: taxPrice,
         totalPrice: totalPrice,
+        payment: user.payment,
+        is_paid: false,
+        is_delivered: false,
       }),
     });
     if (!res.ok) {
@@ -36,7 +43,7 @@ export const Preview = ({ setStep }) => {
     }
     const order = await res.json();
     dispatch.clearCart();
-    navigate(`/orders/${order.insertedId}`);
+    navigate(`/order/${order.insertedId}`);
   };
   return (
     <div id="Preview">

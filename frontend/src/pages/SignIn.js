@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from '../Store';
 // import axios from 'axios';
 import './signin.scss';
@@ -77,7 +77,7 @@ export const SignIn = () => {
         </form>
         {error && <p className="error">{error}</p>}
         <div className="link">
-          New Customer? <a href="/">Create your account</a>
+          New Customer? <Link to="/signup">Create your account</Link>
         </div>
       </div>
     </div>

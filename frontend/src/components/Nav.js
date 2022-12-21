@@ -33,8 +33,8 @@ export const Nav = () => {
           </button>
           {dropdownOpen && (
             <div className="dropdown">
-              <div>User Profile</div>
-              <div>Order&nbsp;History</div>
+              <div onClick={() => navigate('/profile')}>User Profile</div>
+              <div onClick={() => navigate('/orders')}>Order&nbsp;History</div>
               <div className="signout" onClick={signout}>
                 Sign Out
               </div>

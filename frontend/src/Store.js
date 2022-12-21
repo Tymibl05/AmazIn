@@ -16,8 +16,12 @@ export function StoreProvider(props) {
   });
 
   const dispatch = {
+    signup: (user) => {
+      localStorage.setItem('user', JSON.stringify(user));
+      setState({ ...state, user: user });
+    },
     signin: (user) => {
-      localStorage.setItem('user', JSON.stringify(state.user));
+      localStorage.setItem('user', JSON.stringify(user));
       setState({ ...state, user: user });
     },
     signout: () => {
@@ -62,6 +66,14 @@ export function StoreProvider(props) {
         ...state,
         cart: [],
       });
+    },
+    updateProfile: (value) => {
+      const { name, email } = value;
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ ...state.user, name: name, email: email })
+      );
+      setState({ ...state, user: { ...state.user, name: name, email: email } });
     },
   };
 

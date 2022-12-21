@@ -1,0 +1,25 @@
+#OrderHistory {
+  header {
+    border-bottom: 2px solid black;
+  }
+  .table {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 1em 0;
+    gap: 1em;
+    &.order {
+      border-bottom: 1px solid gray;
+    }
+    button {
+      padding: 0.5em;
+      background-color: var(--gray);
+      color: var(--white);
+      border-radius: 4px;
+      border: none;
+      &:hover {
+        background-color: var(--gold);
+      }
+    }
+  }
+}

@@ -100,7 +100,10 @@
 18. Mongo DB
     1. backend connected to mongo db
     2. users, products, and orders routes
+19. Order Details Page
+20. Order History Page
+21. Sign-Up Page
 
 # Next
 
-19. Order Details Page
+22. Responsiveness
