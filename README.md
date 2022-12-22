@@ -103,7 +103,8 @@
 19. Order Details Page
 20. Order History Page
 21. Sign-Up Page
+22. Responsiveness
 
 # Next
 
-22. Responsiveness
+23. DEPLOY

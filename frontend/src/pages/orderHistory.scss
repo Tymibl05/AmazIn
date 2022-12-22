@@ -1,4 +1,67 @@
 #OrderHistory {
+  @media screen and (max-width: 481px) {
+    .table {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    header h3 {
+      text-align: center;
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+    .table div {
+      text-align: center;
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+  }
+  @media screen and (min-width: 482px) and (max-width: 769px) {
+    .table {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+    header h3 {
+      text-align: center;
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+    .table div {
+      text-align: center;
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        display: none;
+      }
+    }
+  }
+  @media screen and (min-width: 770px) and (max-width: 1024px) {
+    .table {
+      grid-template-columns: repeat(5, 1fr) !important;
+    }
+    header h3 {
+      text-align: center;
+
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+    .table div {
+      text-align: center;
+
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+  }
   header {
     border-bottom: 2px solid black;
   }
@@ -6,7 +69,7 @@
     display: grid;
     align-items: center;
     grid-template-columns: repeat(6, 1fr);
-    padding: 1em 0;
+    padding: 1em;
     gap: 1em;
     &.order {
       border-bottom: 1px solid gray;

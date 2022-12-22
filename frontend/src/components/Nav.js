@@ -16,34 +16,38 @@ export const Nav = () => {
   };
   return (
     <nav>
-      <h1>
-        <Link to="/">AmazIn</Link>
-      </h1>
-      <Link to="/cart" className="cart">
-        Cart
-        {cart.length > 0 && (
-          <div>{cart.reduce((a, c) => a + c.quantity, 0)}</div>
-        )}
-      </Link>
-      {user ? (
-        <div className="user" onClick={() => setDropdownOpen(!dropdownOpen)}>
-          <p>{user.name}</p>
-          <button className="dropButton">
-            <FontAwesomeIcon icon="caret-down" />
-          </button>
-          {dropdownOpen && (
-            <div className="dropdown">
-              <div onClick={() => navigate('/profile')}>User Profile</div>
-              <div onClick={() => navigate('/orders')}>Order&nbsp;History</div>
-              <div className="signout" onClick={signout}>
-                Sign Out
-              </div>
-            </div>
+      <div className="container">
+        <h1>
+          <Link to="/">AmazIn</Link>
+        </h1>
+        <Link to="/cart" className="cart">
+          Cart
+          {cart.length > 0 && (
+            <div>{cart.reduce((a, c) => a + c.quantity, 0)}</div>
           )}
-        </div>
-      ) : (
-        <Link to="/signin">Sign In</Link>
-      )}
+        </Link>
+        {user ? (
+          <div className="user" onClick={() => setDropdownOpen(!dropdownOpen)}>
+            <p>{user.name}</p>
+            <button className="dropButton">
+              <FontAwesomeIcon icon="caret-down" />
+            </button>
+            {dropdownOpen && (
+              <div className="dropdown">
+                <div onClick={() => navigate('/profile')}>User Profile</div>
+                <div onClick={() => navigate('/orders')}>
+                  Order&nbsp;History
+                </div>
+                <div className="signout" onClick={signout}>
+                  Sign Out
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link to="/signin">Sign In</Link>
+        )}
+      </div>
     </nav>
   );
 };

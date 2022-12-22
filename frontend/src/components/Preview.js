@@ -87,7 +87,7 @@ export const Preview = ({ setStep }) => {
               <div className="info">
                 {cart.map((item) => (
                   <div key={item._id} className="item">
-                    <div>
+                    <div className="link">
                       <Link to={`/product/${item.slug}`}>
                         <img src={item.image} alt="" />
                       </Link>
