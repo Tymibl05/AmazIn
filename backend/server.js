@@ -17,12 +17,6 @@ app.listen(port, () => {
   connectDb();
 });
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '/frontend/build')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
-);
-
 // USERS
 app.get('/api/users', async (req, res) => {
   try {
@@ -208,6 +202,12 @@ app.post(
       res.status(401).send({ message: error });
     }
   }
+);
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
 );
 
 // UTILS
