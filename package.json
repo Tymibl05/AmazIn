@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Tymibl05/AmazIn#readme",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.20"
   }
 }
