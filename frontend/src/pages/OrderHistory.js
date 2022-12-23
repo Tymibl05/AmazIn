@@ -13,7 +13,7 @@ export const OrderHistory = () => {
     if (!user) navigate('/signin');
     else
       (async () => {
-        const url = `http://localhost:5000/api/orders/mine`;
+        const url = `/api/orders/mine`;
         const res = await fetch(url, {
           method: 'GET',
           headers: {
