@@ -1,7 +1,7 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import { generateToken, isAuth } from './utils.js';
-import path from 'path';
+// import path from 'path';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 import { connectDb, getCol } from './db/mongo.js';
@@ -17,11 +17,11 @@ app.listen(port, () => {
   connectDb();
 });
 
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, './frontend/build')));
-app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, './frontend/build/index.html'))
-);
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, '/frontend/build')));
+// app.get('*', (req, res) =>
+//   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
+// );
 
 // USERS
 app.get('/api/users', async (req, res) => {
@@ -229,12 +229,12 @@ app.post(
 //     res.send(error);
 //   }
 // });
-app.post('/api/seed', async (req, res) => {
-  try {
-    const col = await getCol('products');
-    const products = await col.find().toArray();
-    res.send(products);
-  } catch (error) {
-    res.send(error);
-  }
-});
+// app.post('/api/seed', async (req, res) => {
+//   try {
+//     const col = await getCol('products');
+//     const products = await col.find().toArray();
+//     res.send(products);
+//   } catch (error) {
+//     res.send(error);
+//   }
+// });
