@@ -229,3 +229,12 @@ app.post(
 //     res.send(error);
 //   }
 // });
+app.post('/api/seed', async (req, res) => {
+  try {
+    const col = await getCol('products');
+    const products = await col.find().toArray();
+    res.send(products);
+  } catch (error) {
+    res.send(error);
+  }
+});
