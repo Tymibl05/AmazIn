@@ -28,15 +28,15 @@ app.get('/api', (req, res) =>
 );
 
 // USERS
-app.get('/api/users', async (req, res) => {
-  try {
-    const col = await getCol('users');
-    const users = await col.find().toArray();
-    res.send(users);
-  } catch (error) {
-    console.log(error);
-  }
-});
+// app.get('/api/users', async (req, res) => {
+//   try {
+//     const col = await getCol('users');
+//     const users = await col.find().toArray();
+//     res.send(users);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 app.post('/api/users/signup', async (req, res) => {
   const { name, email, password } = req.body;
   try {
@@ -153,15 +153,15 @@ app.get('/api/products/:id', async (req, res) => {
 });
 
 // ORDERS
-app.get('/api/orders/', async (req, res) => {
-  try {
-    const col = await getCol('orders');
-    const orders = await col.find().toArray();
-    res.send(orders);
-  } catch (error) {
-    res.send(error);
-  }
-});
+// app.get('/api/orders/', async (req, res) => {
+//   try {
+//     const col = await getCol('orders');
+//     const orders = await col.find().toArray();
+//     res.send(orders);
+//   } catch (error) {
+//     res.send(error);
+//   }
+// });
 app.get(
   '/api/orders/mine/',
   (req, res, next) => isAuth(req, res, next),
