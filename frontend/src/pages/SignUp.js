@@ -33,7 +33,7 @@ export const SignUp = () => {
       email: form.email,
       password: form.password,
     };
-    const url = 'http://localhost:5000/api/users/signup';
+    const url = '/api/users/signup';
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
