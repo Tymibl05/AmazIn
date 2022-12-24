@@ -14,7 +14,7 @@ export const Preview = ({ setStep }) => {
   const taxPrice = round2(0.15 * itemsPrice);
   const totalPrice = itemsPrice + shippingPrice + taxPrice;
   const orderHandler = async () => {
-    const url = `http://localhost:5000/api/orders/`;
+    const url = `/api/orders/`;
     const res = await fetch(url, {
       method: 'POST',
       headers: {
