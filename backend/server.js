@@ -18,11 +18,11 @@ app.listen(port, () => {
 });
 
 // const __dirname = path.resolve();
-const dir = path.resolve();
-const __dirname = dir.slice(0, -8); //remove /backend from pathname
-console.log(__dirname);
+// const dir = path.resolve();
+// const __dirname = dir.slice(0, -8); //remove /backend from pathname
+// console.log(__dirname);
 
-app.use(express.static(path.join(__dirname, './frontend/build')));
+// app.use(express.static(path.join(__dirname, './frontend/build')));
 // app.get('/api', (req, res) =>
 //   res.sendFile(path.join(__dirname, './frontend/build/index.html'))
 // );
