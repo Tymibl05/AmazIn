@@ -2,7 +2,7 @@
 
 This project was created by [Tyler Blease](https://www.linkedin.com/in/tyler-blease/).
 
-[View Live](https://tymibl05.github.io/AmazIn-demo/)
+[View Live](https://amazin-ecom.onrender.com)
 
 ## App Functions
 
