@@ -104,7 +104,4 @@
 20. Order History Page
 21. Sign-Up Page
 22. Responsiveness
-
-# Next
-
 23. DEPLOY
