@@ -9,7 +9,7 @@ export const Payment = ({ setStep }) => {
     dispatch,
   } = useStore();
   const [paymentMethod, setPaymentMethod] = useState(
-    payment ? payment : 'paypal'
+    payment ? payment : 'PayPal'
   );
   const submitHandler = (e) => {
     e.preventDefault();

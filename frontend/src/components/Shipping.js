@@ -28,6 +28,7 @@ export const Shipping = ({ setStep }) => {
           <div>
             <label htmlFor="">Full Name</label>
             <input
+              required
               type="text"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -36,6 +37,7 @@ export const Shipping = ({ setStep }) => {
           <div>
             <label htmlFor="">Address</label>
             <input
+              required
               type="text"
               value={form.address}
               onChange={(e) => setForm({ ...form, address: e.target.value })}
@@ -44,6 +46,7 @@ export const Shipping = ({ setStep }) => {
           <div>
             <label htmlFor="">City</label>
             <input
+              required
               type="text"
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
@@ -52,6 +55,7 @@ export const Shipping = ({ setStep }) => {
           <div>
             <label htmlFor="">Postal Code</label>
             <input
+              required
               type="text"
               value={form.pcode}
               onChange={(e) => setForm({ ...form, pcode: e.target.value })}
@@ -60,6 +64,7 @@ export const Shipping = ({ setStep }) => {
           <div>
             <label htmlFor="">Country</label>
             <input
+              required
               type="text"
               value={form.country}
               onChange={(e) => setForm({ ...form, country: e.target.value })}
