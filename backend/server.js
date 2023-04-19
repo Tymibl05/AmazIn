@@ -17,16 +17,6 @@ app.listen(port, () => {
   connectDb();
 });
 
-// const __dirname = path.resolve();
-const dir = path.resolve();
-const __dirname = dir.slice(0, -8); //remove /backend from pathname
-console.log(__dirname);
-
-app.use(express.static(path.join(__dirname, './frontend/build')));
-app.get('/api', (req, res) =>
-  res.sendFile(path.join(__dirname, './frontend/build/index.html'))
-);
-
 // USERS
 // app.get('/api/users', async (req, res) => {
 //   try {
@@ -212,6 +202,14 @@ app.post(
       res.status(401).send({ message: error });
     }
   }
+);
+
+//** SERVER RENDER */
+const dir = path.resolve();
+const __dirname = dir.slice(0, -8); //remove /backend from pathname
+app.use(express.static(path.join(__dirname, './frontend/build')));
+app.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, './frontend/build/index.html'))
 );
 
 // UTILS
